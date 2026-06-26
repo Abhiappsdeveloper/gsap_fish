@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Weird Fishes</title>
+    <title>Weird Fishes - IT Jobs</title>
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Judson&display=swap");
 
@@ -37,6 +37,69 @@
             body {
                 font-size: 2rem;
             }
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: rgba(10, 50, 80, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        header nav {
+            display: flex;
+            gap: 2rem;
+            font-size: 1rem;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        header nav a:hover {
+            color: #63a7bf;
+        }
+
+        /* Footer */
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: rgba(10, 50, 80, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            z-index: 100;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
         }
 
         .rays {
@@ -346,6 +409,8 @@
             position: relative;
             z-index: 1;
             padding-bottom: 100vh;
+            padding-top: 80px;
+            padding-bottom: calc(100vh + 60px);
         }
 
         section {
@@ -368,6 +433,7 @@
             justify-content: center;
             align-items: center;
             padding: 1rem;
+            margin-top: 80px;
         }
 
         @media (min-width: 50rem) {
@@ -382,6 +448,64 @@
                 grid-column: var(--col, 1);
                 opacity: 0;
             }
+        }
+
+        .section__text {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .section__data {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 900px;
+            text-align: left;
+        }
+
+        .section__data h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: #63a7bf;
+        }
+
+        .section__data ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .section__data li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .section__data li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #63a7bf;
+        }
+
+        .job-profile {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(99, 167, 191, 0.1);
+            border-left: 4px solid #63a7bf;
+            border-radius: 4px;
+        }
+
+        .job-profile h4 {
+            margin-top: 0;
+            color: #63a7bf;
+            font-size: 1.3rem;
+        }
+
+        .job-profile p {
+            margin: 0.5rem 0;
+            font-size: 1rem;
         }
 
         .bubbles {
@@ -425,10 +549,11 @@
         .indicator {
             text-align: center;
             position: fixed;
-            bottom: 1rem;
+            bottom: 80px;
             left: 50%;
             transform: translate3d(-50%, 0, 0);
             font-size: 1.2rem;
+            z-index: 10;
         }
 
         .indicator span {
@@ -449,6 +574,15 @@
 </head>
 
 <body>
+    <header>
+        <h1>Weird Fishes</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#jobs">IT Jobs</a>
+            <a href="#trends">Trends</a>
+        </nav>
+    </header>
+
     <p class="indicator">
         <span>Scroll</span>
         <span>↓</span>
@@ -507,60 +641,115 @@
     <div class="content">
         <section>
             <div class="section__content">
-                <p>In the deepest ocean</p>
+                <p class="section__text">In the deepest ocean</p>
             </div>
         </section>
         <section>
             <div class="section__content">
-                <p>the bottom of the sea</p>
+                <p class="section__text">the bottom of the sea</p>
             </div>
         </section>
         <section>
             <div class="section__content">
-                <p>Your eyes...</p>
+                <div class="section__data">
+                    <h3>Top IT Job Profiles in the USA</h3>
+                    <p>Highest Paying Roles & Market Trends</p>
+                    <p><strong>Report | June 2026 | Compiled by Norlox Solutions</strong></p>
+                    <p>The US IT job market in 2026 is shaped by AI, cloud computing, and cybersecurity. While baseline tech roles face slowdowns, specialized profiles command premium salaries with 8–10% projected salary growth this year.</p>
+                </div>
             </div>
         </section>
         <section>
             <div class="section__content">
-                <p>they turn me...</p>
+                <div class="section__data">
+                    <h3>1. IT Manager / Director</h3>
+                    <p><strong>Average Salary: $171,000</strong></p>
+                    <p>Oversees technology teams, infrastructure, and strategic IT planning across the organization. Among the highest compensated IT roles per BLS data, reflecting the scope of responsibility and business impact.</p>
+                    <p><strong>Demand: High</strong></p>
+                </div>
             </div>
         </section>
         <section>
             <div class="section__content">
-                <p>turn me on to phantoms</p>
+                <div class="section__data">
+                    <h3>2. Cloud Architect</h3>
+                    <p><strong>Average Salary: $143,270</strong></p>
+                    <p>Responsible for designing and implementing an organization's entire cloud computing strategy. Demand is near-universal as companies across all industries continue cloud migration. Certifications in AWS, Azure, or GCP are essential.</p>
+                    <p><strong>Demand: Very High</strong></p>
+                </div>
             </div>
         </section>
         <section>
             <div class="section__content">
-                <p>I follow to the edge of the earth</p>
+                <div class="section__data">
+                    <h3>3. Security Architect</h3>
+                    <p><strong>Average Salary: $150,000–$170,000+</strong></p>
+                    <p>Creates and oversees an organization's complete security infrastructure, identifies vulnerabilities via risk assessments, and builds security frameworks. Top-rated for both compensation and long-term stability given growing cyber threats.</p>
+                    <p><strong>Demand: Very High</strong></p>
+                </div>
             </div>
         </section>
         <section>
             <div class="section__content">
-                <p>and fall off</p>
+                <div class="section__data">
+                    <h3>4. Cybersecurity Engineer</h3>
+                    <p><strong>Average Salary: $120,000–$160,000</strong></p>
+                    <p>Organizations are shifting to zero-trust models, cloud-native security, and AI-powered threat detection. With 700,000+ unfilled cybersecurity positions in the US, competition for talent is fierce, driving salaries well above market averages.</p>
+                    <p><strong>Demand: Critical</strong></p>
+                </div>
             </div>
         </section>
         <section>
             <div class="section__content">
-                <p>I get eaten by the worms</p>
+                <div class="section__data">
+                    <h3>5. AI / Machine Learning Engineer</h3>
+                    <p><strong>Average Salary: $130,000–$180,000</strong></p>
+                    <p>The fastest-growing profile in 2026. AI engineers build and deploy models powering automation, prediction, and intelligence across healthcare, SaaS, finance, and logistics. Employers regularly exceed stated salary expectations to secure this talent.</p>
+                    <p><strong>Demand: Explosive</strong></p>
+                </div>
             </div>
         </section>
         <section>
             <div class="section__content">
-                <p>and weird fishes</p>
+                <div class="section__data">
+                    <h3>6. Data Engineer</h3>
+                    <p><strong>Average Salary: $120,000–$150,000</strong></p>
+                    <p>Builds the pipelines and infrastructure enabling companies to process and analyze massive real-time datasets. Powers AI models, recommendation engines, and business intelligence dashboards. Critical across virtually every modern business.</p>
+                    <p><strong>Demand: Very High</strong></p>
+                </div>
             </div>
         </section>
         <section>
             <div class="section__content">
-                <p>Hit the bottom and escape</p>
+                <div class="section__data">
+                    <h3>Key Market Trends — 2026</h3>
+                    <ul>
+                        <li><strong>AI & Cloud dominate hiring:</strong> Nearly every modernization roadmap now relies on AI and cloud technology.</li>
+                        <li><strong>Skills over experience:</strong> Employers are shifting to skills-based hiring — demonstrable technical ability now outweighs years of experience.</li>
+                        <li><strong>Talent shortage persists:</strong> 76% of IT employers report difficulty finding qualified tech talent, keeping salaries elevated.</li>
+                        <li><strong>Salaries rising 8–10%:</strong> Overall IT salary growth is projected at 8–10% in 2026, with specialized roles seeing increases of up to 20%.</li>
+                        <li><strong>Hot geographies:</strong> Houston and Chicago lead in open tech roles.</li>
+                        <li><strong>Remote & global competition:</strong> The share of global tech job postings in emerging economies grew from 16% (2020) to 28% (2025).</li>
+                    </ul>
+                </div>
             </div>
         </section>
         <section>
             <div class="section__content">
-                <p>escape</p>
+                <p class="section__text">Hit the bottom and escape</p>
+            </div>
+        </section>
+        <section>
+            <div class="section__content">
+                <p class="section__text">escape</p>
             </div>
         </section>
     </div>
+
+    <footer>
+        <p>&copy; 2026 Norlox Solutions | IT Job Market Report | June 2026</p>
+    </footer>
+
     <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/ScrollTrigger.min.js'></script>
     <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/MotionPathPlugin.min.js'></script>
@@ -646,7 +835,6 @@
             },
             duration: 10,
             immediateRender: true,
-            // ease: 'power4'
         })
         tl.to('.indicator', {
             opacity: 0
@@ -745,7 +933,7 @@
         }
 
         sections.forEach((section, i) => {
-            const p = section.querySelector('p')
+            const p = section.querySelector('p, .section__data')
             gsap.to(p, { opacity: 0 })
 
             ScrollTrigger.create({
