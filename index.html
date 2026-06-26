@@ -3,965 +3,1217 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Weird Fishes - IT Jobs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top IT Job Profiles - USA 2026 | Norlox Solutions</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css'>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        @import url("https://fonts.googleapis.com/css2?family=Judson&display=swap");
-
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg-dark: #0a0e27;
+            --bg-darker: #05070f;
+            --glass-light: rgba(255, 255, 255, 0.05);
+            --glass-medium: rgba(255, 255, 255, 0.1);
+            --text-primary: #ffffff;
+            --text-secondary: #b3b3b3;
+            --accent-cyan: #00d9ff;
+            --accent-blue: #0066ff;
+            --accent-emerald: #00d67d;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: "Judson", serif;
-            background: linear-gradient(to bottom, #63a7bf, #5e56b3, #488ba3, #4f7cb3, #34738c, #305c91, #275291, #133a6e, #0a3250, #282964, #0e345e, black);
-            max-width: 100vw;
-            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
             overflow-x: hidden;
-            color: white;
-            position: relative;
-            margin: 0;
+            line-height: 1.6;
+            padding-top: 90px;
+            padding-bottom: 100px;
         }
 
-        body::after {
-            position: fixed;
-            content: "";
-            pointer-events: none;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: radial-gradient(circle at center, transparent, rgba(0, 0, 0, 0.5));
-        }
-
-        @media (min-width: 40em) {
-            body {
-                font-size: 2rem;
-            }
-        }
-
-        /* Header */
-        header {
+        /* ===== FIXED HEADER ===== */
+        header.premium-header {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 80px;
-            background: rgba(10, 50, 80, 0.95);
-            backdrop-filter: blur(10px);
+            right: 0;
+            z-index: 99999;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background: rgba(10, 14, 39, 0.92);
+            border-bottom: 1px solid rgba(0, 217, 255, 0.2);
+            padding: 1.2rem 2rem;
+            height: 90px;
             display: flex;
             align-items: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        header.premium-header.scrolled {
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            background: rgba(10, 14, 39, 0.95);
+            box-shadow: 0 12px 40px rgba(0, 217, 255, 0.15);
+            padding: 0.8rem 2rem;
+            height: 80px;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
             justify-content: space-between;
-            padding: 0 2rem;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            width: 100%;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 1.8rem;
-            font-weight: bold;
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
             letter-spacing: 2px;
+            color: var(--accent-cyan);
         }
 
-        header nav {
+        nav {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--accent-cyan);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-cyan);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .cta-download {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+            color: var(--bg-dark);
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .cta-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
+        }
+
+        /* ===== HERO SECTION ===== */
+        section.hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-top: 0;
+            background: linear-gradient(135deg, rgba(10, 14, 39, 0.8), rgba(5, 7, 15, 0.9));
+        }
+
+        .capture-canvas {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        #capture {
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            z-index: 1;
+            top: 90px;
+            height: calc(100vh - 90px);
+        }
+
+        #capture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .hero-content {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            text-align: center;
+            max-width: 800px;
+            animation: fadeInUp 1s ease 0.5s backwards;
+            width: 90%;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #00d9ff, #0066ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 1s backwards;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+            color: var(--bg-dark);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(0, 217, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--glass-medium);
+            color: var(--text-primary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background: var(--glass-light);
+            border-color: var(--accent-cyan);
+        }
+
+        /* ===== SPACER SECTION ===== */
+        .spacer-section {
+            height: 200vh;
+            position: relative;
+            z-index: 5;
+            background: linear-gradient(180deg, rgba(10, 14, 39, 0.9), rgba(5, 7, 15, 1));
+        }
+
+        /* ===== STATISTICS SECTION ===== */
+        section.statistics {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, rgba(5, 7, 15, 0.95), rgba(10, 14, 39, 0.9));
+            position: relative;
+            z-index: 5;
+            background-attachment: fixed;
+        }
+
+        .stats-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 6;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--glass-light), var(--glass-medium));
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            animation: floatIn 0.6s ease backwards;
+        }
+
+        .stat-card:nth-child(1) { animation-delay: 0s; }
+        .stat-card:nth-child(2) { animation-delay: 0.1s; }
+        .stat-card:nth-child(3) { animation-delay: 0.2s; }
+        .stat-card:nth-child(4) { animation-delay: 0.3s; }
+
+        .stat-card:hover {
+            background: linear-gradient(135deg, var(--glass-medium), rgba(0, 217, 255, 0.12));
+            transform: translateY(-5px);
+            border-color: rgba(0, 217, 255, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* ===== SECTION HEADING ===== */
+        .section-heading {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 6;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .section-heading p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ===== SALARY CARDS SECTION ===== */
+        section.salary-overview {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, rgba(10, 14, 39, 0.95), rgba(5, 7, 15, 0.9));
+            position: relative;
+            z-index: 5;
+            background-attachment: fixed;
+        }
+
+        .cards-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 6;
+        }
+
+        .salary-card {
+            background: linear-gradient(135deg, var(--glass-light), var(--glass-medium));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            cursor: pointer;
+            overflow: hidden;
+            position: relative;
+            animation: floatIn 0.6s ease backwards;
+        }
+
+        .salary-card:nth-child(1) { animation-delay: 0s; }
+        .salary-card:nth-child(2) { animation-delay: 0.1s; }
+        .salary-card:nth-child(3) { animation-delay: 0.2s; }
+        .salary-card:nth-child(4) { animation-delay: 0.3s; }
+        .salary-card:nth-child(5) { animation-delay: 0.4s; }
+        .salary-card:nth-child(6) { animation-delay: 0.5s; }
+
+        .salary-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 217, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+            z-index: 1;
+        }
+
+        .salary-card:hover::before {
+            left: 100%;
+        }
+
+        .salary-card:hover {
+            background: linear-gradient(135deg, var(--glass-medium), rgba(0, 217, 255, 0.12));
+            border-color: rgba(0, 217, 255, 0.3);
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 217, 255, 0.15);
+        }
+
+        .salary-card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .salary-amount {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-emerald));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .salary-demand {
+            display: inline-block;
+            background: rgba(0, 217, 255, 0.1);
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            color: var(--accent-cyan);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .salary-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: rgba(0, 217, 255, 0.1);
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+
+        .learn-more {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .learn-more:hover {
+            gap: 0.8rem;
+        }
+
+        /* ===== HORIZONTAL SCROLL SECTION ===== */
+        section.roles-scroll {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, rgba(5, 7, 15, 0.95), rgba(10, 14, 39, 0.9));
+            overflow: hidden;
+            position: relative;
+            z-index: 5;
+            background-attachment: fixed;
+        }
+
+        .scroll-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 6;
+        }
+
+        .horizontal-scroll {
             display: flex;
             gap: 2rem;
-            font-size: 1rem;
+            overflow-x: auto;
+            padding: 2rem 0;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
         }
 
-        header nav a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s ease;
+        .horizontal-scroll::-webkit-scrollbar {
+            height: 6px;
         }
 
-        header nav a:hover {
-            color: #63a7bf;
+        .horizontal-scroll::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
         }
 
-        /* Footer */
+        .horizontal-scroll::-webkit-scrollbar-thumb {
+            background: rgba(0, 217, 255, 0.3);
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .horizontal-scroll::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 217, 255, 0.6);
+        }
+
+        .role-card {
+            flex: 0 0 300px;
+            background: linear-gradient(135deg, var(--glass-light), var(--glass-medium));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            scroll-snap-align: start;
+            transition: all 0.3s ease;
+        }
+
+        .role-card:hover {
+            background: linear-gradient(135deg, var(--glass-medium), rgba(0, 217, 255, 0.12));
+            border-color: rgba(0, 217, 255, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .role-card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .role-card-badge {
+            display: inline-block;
+            background: rgba(0, 214, 125, 0.1);
+            border: 1px solid rgba(0, 214, 125, 0.3);
+            color: var(--accent-emerald);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* ===== MARKET TRENDS SECTION ===== */
+        section.market-trends {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, rgba(10, 14, 39, 0.95), rgba(5, 7, 15, 0.9));
+            position: relative;
+            z-index: 5;
+            background-attachment: fixed;
+        }
+
+        .trends-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 6;
+        }
+
+        .trend-block {
+            margin-bottom: 4rem;
+            padding: 3rem;
+            background: linear-gradient(135deg, var(--glass-light), var(--glass-medium));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .trend-block:hover {
+            background: linear-gradient(135deg, var(--glass-medium), rgba(0, 217, 255, 0.12));
+            border-color: rgba(0, 217, 255, 0.3);
+            transform: translateX(10px);
+        }
+
+        .trend-block h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .trend-block p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ===== CTA SECTION ===== */
+        section.cta-section {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.15), rgba(0, 217, 255, 0.1));
+            border-top: 1px solid rgba(0, 217, 255, 0.2);
+            border-bottom: 1px solid rgba(0, 217, 255, 0.2);
+            text-align: center;
+            position: relative;
+            z-index: 5;
+            background-attachment: fixed;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 6;
+        }
+
+        .cta-container h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-container p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ===== FIXED FOOTER ===== */
         footer {
             position: fixed;
             bottom: 0;
             left: 0;
-            width: 100%;
-            height: 60px;
-            background: rgba(10, 50, 80, 0.95);
-            backdrop-filter: blur(10px);
+            right: 0;
+            z-index: 99999;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background: rgba(10, 14, 39, 0.92);
+            border-top: 1px solid rgba(0, 217, 255, 0.2);
+            padding: 1.2rem 2rem;
+            height: 100px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 1rem;
-            z-index: 100;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
-            font-size: 0.9rem;
-            text-align: center;
+            box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.4);
         }
 
-        footer p {
-            margin: 0;
+        footer.scrolled {
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            background: rgba(10, 14, 39, 0.95);
+            box-shadow: 0 -12px 40px rgba(0, 217, 255, 0.15);
         }
 
-        .rays {
-            --r: 10deg;
-            --c: rgba(255, 251, 227, 0.2);
-            --size: max(60vh, 80rem);
-            --mask: radial-gradient(circle at center, black, transparent 50%);
-            position: fixed;
-            pointer-events: none;
-            top: calc(var(--size) * -0.55);
-            left: 50%;
-            width: var(--size);
-            height: var(--size);
-            pointer-events: none;
-        }
-
-        .rays>div {
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 6;
             width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: repeating-conic-gradient(var(--c), var(--c) var(--r), transparent var(--r), transparent calc(var(--r) * 2));
-            -webkit-mask-image: var(--mask);
-            mask-image: var(--mask);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        @keyframes raysRotate {
-            50% {
-                transform: rotate(180deg) scale(1.5);
-            }
-
-            100% {
-                transform: rotate(360deg) scale(1);
-            }
+        .footer-content {
+            display: none;
         }
 
-        .fish-wrapper {
-            --mask: linear-gradient(180deg, rgba(0, 0, 0, 1.0), transparent);
-            width: 100%;
-            height: 100vh;
-            position: fixed;
-            top: 0;
-            left: 0;
-            perspective: 100rem;
-            perspective-origin: center center;
-            transform-style: preserve-3d;
-            pointer-events: none;
-            -webkit-mask-image: var(--mask);
-            mask-image: var(--mask);
+        .footer-section {
+            display: none;
+        }
+
+        .footer-text {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            position: relative;
             z-index: 2;
+            flex: 1;
         }
 
-        .fish {
-            --bodyW: 2rem;
-            --o: 0.95;
-            --l: 100%;
-            --c: hsla(250deg, 50%, var(--l), var(--o, 0.6));
-            --size: 10rem;
-            position: relative;
-            width: var(--size);
-            height: var(--size);
-            transform-style: preserve-3d;
-            transform-origin: center;
+        .footer-text strong {
+            color: var(--accent-cyan);
         }
 
-        @media (min-width: 1000px) {
-            .fish {
-                --size: 20rem;
-                --bodyW: 4rem;
-            }
+        .footer-bottom {
+            display: none;
         }
 
-        .fish__skeleton {
-            --clip: polygon(0 var(--bodyW), 45% 0, 55% 0, 100% var(--bodyW), 50% 100%);
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: repeating-linear-gradient(0deg, var(--c), var(--c) 0.1rem, transparent 0, transparent 0.5rem), linear-gradient(var(--c) var(--bodyW), transparent var(--bodyW)), linear-gradient(90deg, transparent calc((var(--bodyW) / 2) - 0.1rem), var(--c) 0, var(--c) calc((var(--bodyW) / 2) + 0.1rem), transparent 0);
-            top: calc(var(--bodyW) / 4);
-            left: calc(var(--bodyW) * 0.75);
-            width: var(--bodyW);
-            height: calc(var(--bodyW) * 4);
-            -webkit-clip-path: var(--clip);
-            clip-path: var(--clip);
-            opacity: 0;
-            transform: translate3d(0, 0, calc(var(--bodyW) / -2)) rotate(90deg);
-            transform-origin: center center;
-        }
-
-        .fish__inner {
-            --a: 9.5deg;
-            width: calc(var(--bodyW) * 1.5);
-            height: var(--size);
-            transform-style: preserve-3d;
-            transform: rotate(90deg);
-        }
-
-        .fish__body {
-            --l: 75%;
-            --c: hsla(250deg, 50%, var(--l), var(--o, 0.6));
-            position: absolute;
-            top: var(--bodyW);
-            left: 0;
-            width: var(--bodyW);
-            height: calc(3 * var(--bodyW));
-            background: var(--c);
-            clip-path: polygon(0 0, 100% 0, 50% 100%);
-            transform: translateZ(calc(var(--bodyW) / -2)) rotateX(var(--a));
-            transform-origin: center top;
-        }
-
-        .fish__body:nth-child(2) {
-            --i: 2;
-            --l: 75%;
-            transform: translateZ(calc(var(--bodyW) / 2)) rotateX(calc(var(--a) * -1));
-        }
-
-        .fish__body:nth-child(3) {
-            --i: 3;
-            --l: 95%;
-            transform: rotateY(90deg) translate3d(calc(var(--bodyW) / -2), 0, 0) rotateX(var(--a));
-            transform-origin: left top;
-        }
-
-        .fish__body:nth-child(4) {
-            --i: 4;
-            --l: 50%;
-            transform: rotateY(90deg) translate3d(calc(var(--bodyW) / 2), 0, 0) rotateX(calc(var(--a) * -1));
-            transform-origin: right top;
-        }
-
-        .fish__head {
-            --a: 23.5deg;
-            --l: 85%;
-            --c: hsla(250deg, 50%, var(--l), var(--o, 0.6));
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: var(--bodyW);
-            height: var(--bodyW);
-            background: var(--c);
-            clip-path: polygon(40% 0, 60% 0, 100% 100%, 0 100%);
-            transform: translateZ(calc(var(--bodyW) / 2)) rotateX(var(--a));
-            transform-origin: center bottom;
-        }
-
-        .fish__head--2 {
-            --i: 2;
-            --l: 80%;
-            transform: translateZ(calc(var(--bodyW) / -2)) rotateX(calc(var(--a) * -1));
-        }
-
-        .fish__head--3 {
-            --i: 3;
-            --l: 90%;
-            transform: rotateY(90deg) translate3d(calc(var(--bodyW) / -2), 0, 0) rotateX(calc(var(--a) * -1));
-            transform-origin: left bottom;
-        }
-
-        .fish__head--4 {
-            --l: 55%;
-            transform: rotateY(90deg) translate3d(calc(var(--bodyW) / 2), 0, 0) rotateX(var(--a));
-            transform-origin: right bottom;
-        }
-
-        .fish__tail-main {
-            --o: 0.9;
-            --l: 90%;
-            --c: hsla(250deg, 50%, var(--l), var(--o, 0.6));
-            width: var(--bodyW);
-            height: var(--bodyW);
-            background-color: var(--c);
-            position: absolute;
-            left: 0;
-            bottom: var(--bodyW);
-            clip-path: polygon(50% 0, 100% 100%, 0 100%);
-        }
-
-        .fish__tail-fork {
-            --o: 0.9;
-            --l: 95%;
-            --c: hsla(250deg, 50%, var(--l), var(--o, 0.6));
-            width: var(--bodyW);
-            height: var(--bodyW);
-            background-color: var(--c);
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            clip-path: polygon(0 0, 100% 0, 100% 70%, 90% 100%, 70% 70%, 50% 30%, 30% 70%, 10% 100%, 0 70%);
-            transform-origin: top center;
-            transform: rotateX(-45deg);
-            animation: tail 1000ms infinite alternate;
-        }
-
-        .fish__fin {
-            width: calc(var(--bodyW) / 8 * 3);
-            height: var(--bodyW);
-            background-color: var(--c);
-            position: absolute;
-            top: calc(var(--bodyW) * 1.5);
-            left: calc(var(--bodyW) / 8 * 3);
-            clip-path: polygon(50% 0, 100% 30%, 100% 60%, 50% 100%, 0 60%, 0 30%);
-            transform-origin: top center;
-            transform: translateZ(calc(var(--bodyW) / 2)) rotateY(0deg) rotateX(5deg) rotate(10deg);
-            animation: fin 1500ms infinite alternate linear;
-        }
-
-        .fish__fin--2 {
-            transform: translateZ(calc(var(--bodyW) / -2)) rotateY(0deg) rotateX(-5deg) rotate(10deg);
-            animation: fin2 1500ms infinite alternate linear;
-        }
-
-        @keyframes tail {
-            to {
-                transform: rotateX(45deg);
-            }
-        }
-
-        @keyframes fin {
-            100% {
-                transform: translateZ(calc(var(--bodyW) / 2)) rotateY(10deg) rotateX(20deg) rotate(-10deg);
-            }
-        }
-
-        @keyframes fin2 {
-            100% {
-                transform: translateZ(calc(var(--bodyW) / -2)) rotateY(-10deg) rotateX(-20deg) rotate(-10deg);
-            }
-        }
-
-        /* Lights */
-        .lights {
-            position: fixed;
-            pointer-events: none;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-        }
-
-        .lights__group {
-            position: relative;
-            height: 100%;
-        }
-
-        .lights__light {
-            --size: 0.35rem;
-            width: var(--size);
-            height: var(--size);
-            position: absolute;
-            background: white;
-            border-radius: 100%;
-            top: 10%;
-            left: 25%;
-            filter: blur(0.1rem);
-            animation: blink 2500ms var(--d, 0ms) infinite alternate;
-        }
-
-        .lights__light:nth-child(2) {
-            --d: 200ms;
-            top: 40%;
-            left: 12%;
-        }
-
-        .lights__light:nth-child(3) {
-            --d: 350ms;
-            top: 60%;
-            left: 18%;
-        }
-
-        .lights__light:nth-child(4) {
-            --d: 600ms;
-            top: 25%;
-            left: 66%;
-        }
-
-        .lights__light:nth-child(5) {
-            --d: 1210ms;
-            top: 43%;
-            left: 55%;
-        }
-
-        .lights__light:nth-child(6) {
-            --d: 420ms;
-            top: 90%;
-            left: 37%;
-        }
-
-        .lights__light:nth-child(7) {
-            --d: 1100ms;
-            top: 82%;
-            left: 91%;
-        }
-
-        .lights__light:nth-child(8) {
-            --d: 1560ms;
-            top: 67%;
-            left: 81%;
-        }
-
-        @keyframes blink {
-            to {
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
                 opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        .content {
-            position: relative;
-            z-index: 1;
-            padding-bottom: 100vh;
-            padding-top: 80px;
-            padding-bottom: calc(100vh + 60px);
+        @keyframes floatIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        section {
-            height: 100vh;
-            width: 100%;
-            margin-top: 100vh;
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 80px;
+                padding-bottom: 90px;
+            }
+
+            header.premium-header {
+                height: 80px;
+                padding: 1rem 1.5rem;
+            }
+
+            header.premium-header.scrolled {
+                height: 70px;
+                padding: 0.7rem 1.5rem;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .cta-download {
+                display: none;
+            }
+
+            .logo {
+                font-size: 1rem;
+            }
+
+            #capture {
+                top: 80px;
+                height: calc(100vh - 80px);
+            }
+
+            .hero-content {
+                width: 95%;
+            }
+
+            .hero-content h1 {
+                font-size: clamp(2rem, 6vw, 3.5rem);
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .horizontal-scroll {
+                overflow-x: auto;
+            }
+
+            .role-card {
+                flex: 0 0 280px;
+            }
+
+            .trend-block {
+                padding: 2rem;
+            }
+
+            .trend-block h3 {
+                font-size: 1.5rem;
+            }
+
+            section {
+                padding: 4rem 1rem !important;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .footer-text {
+                font-size: 0.85rem;
+                text-align: center;
+            }
         }
 
-        section:nth-child(4n),
-        section:nth-child(4n-1) {
-            --col: 3;
+        /* ===== CUSTOM SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 10px;
         }
 
-        .section__content {
-            width: 100%;
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0, 217, 255, 0.3);
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 217, 255, 0.6);
+        }
+
+        .support {
             position: fixed;
-            top: 0;
-            height: 100vh;
+            right: 10px;
+            bottom: 120px;
+            padding: 10px;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 1rem;
-            margin-top: 80px;
+            z-index: 2000;
         }
 
-        @media (min-width: 50rem) {
-            .section__content {
-                display: grid;
-                grid-template-columns: repeat(3, minmax(0, 25rem));
-                gap: 2rem;
-                padding: 3rem;
-            }
-
-            .section__content>* {
-                grid-column: var(--col, 1);
-                opacity: 0;
-            }
-        }
-
-        .section__text {
-            font-size: 1.5rem;
-            line-height: 1.6;
-            max-width: 800px;
-            text-align: center;
-        }
-
-        .section__data {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            max-width: 900px;
-            text-align: left;
-        }
-
-        .section__data h3 {
+        .support a {
+            margin: 0 10px;
+            color: var(--text-primary);
             font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            color: #63a7bf;
+            backface-visibility: hidden;
+            transition: all 150ms ease;
         }
 
-        .section__data ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .section__data li {
-            margin-bottom: 1rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .section__data li:before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: #63a7bf;
-        }
-
-        .job-profile {
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: rgba(99, 167, 191, 0.1);
-            border-left: 4px solid #63a7bf;
-            border-radius: 4px;
-        }
-
-        .job-profile h4 {
-            margin-top: 0;
-            color: #63a7bf;
-            font-size: 1.3rem;
-        }
-
-        .job-profile p {
-            margin: 0.5rem 0;
-            font-size: 1rem;
-        }
-
-        .bubbles {
-            position: fixed;
-            top: 0;
-            left: 5rem;
-            transform-origin: center;
-            transform: translate3d(10rem, 5rem, 0) rotateX(20deg) rotateY(0deg);
-        }
-
-        .bubbles__inner {
-            width: 10rem;
-            height: 10rem;
-        }
-
-        .bubbles__bubble {
-            --c: rgba(255, 255, 255, 0.4);
-            --size: 2.5rem;
-            position: absolute;
-            width: var(--size);
-            height: var(--size);
-            border-radius: 50%;
-            background: radial-gradient(transparent 30%, var(--c, white)), radial-gradient(circle at 100% 0%, transparent 30%, var(--c, white));
-            transform-origin: center;
-            transform: scale(0);
-            opacity: 0;
-        }
-
-        .bubbles__bubble:nth-child(2) {
-            --size: 1.8rem;
-            top: 3rem;
-            left: 2rem;
-        }
-
-        .bubbles__bubble:nth-child(3) {
-            --size: 1.2rem;
-            top: 6rem;
-            left: 0;
-        }
-
-        .indicator {
-            text-align: center;
-            position: fixed;
-            bottom: 80px;
-            left: 50%;
-            transform: translate3d(-50%, 0, 0);
-            font-size: 1.2rem;
-            z-index: 10;
-        }
-
-        .indicator span {
-            display: block;
-        }
-
-        .indicator span:nth-child(2) {
-            animation: arrowMove 600ms infinite alternate;
-        }
-
-        @keyframes arrowMove {
-            to {
-                transform: translate3d(0, 0.5rem, 0);
-            }
+        .support a:hover {
+            transform: scale(1.1);
+            color: var(--accent-cyan);
         }
     </style>
 
 </head>
 
 <body>
-    <header>
-        <h1>Weird Fishes</h1>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#jobs">IT Jobs</a>
-            <a href="#trends">Trends</a>
-        </nav>
+    <!-- FIXED HEADER -->
+    <header class="premium-header">
+        <div class="header-container">
+            <div class="logo">Norlox</div>
+            <nav>
+                <a href="#solutions">Solutions</a>
+                <a href="#reports">Reports</a>
+                <a href="#salary">Salary Guide</a>
+                <a href="#insights">Insights</a>
+                <a href="#about">About</a>
+            </nav>
+            <button class="cta-download">Download Report</button>
+        </div>
     </header>
 
-    <p class="indicator">
-        <span>Scroll</span>
-        <span>↓</span>
-    </p>
+    <!-- HERO SECTION WITH DISINTEGRATION ANIMATION -->
+    <section class="hero">
+        <div id="capture">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:rgb(0,102,255);stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:rgb(0,217,255);stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1920' height='1080' fill='url(%23grad1)'/%3E%3C/svg%3E">
+        </div>
 
-    <div class="fish-wrapper">
-        <div class="fish">
-            <div class="fish__skeleton"></div>
-            <div class="fish__inner">
-                <!--body-->
-                <div class="fish__body"></div>
-                <div class="fish__body"></div>
-                <div class="fish__body"></div>
-                <div class="fish__body"></div>
-
-                <!--head-->
-                <div class="fish__head"></div>
-                <div class="fish__head fish__head--2"></div>
-                <div class="fish__head fish__head--3"></div>
-                <div class="fish__head fish__head--4"></div>
-
-                <div class="fish__tail-main"></div>
-                <div class="fish__tail-fork"></div>
-
-                <div class="fish__fin"></div>
-                <div class="fish__fin fish__fin--2"></div>
+        <div class="hero-content">
+            <h1>Top IT Job Profiles in the USA</h1>
+            <p>Highest Paying Roles • Market Trends • 2026 Report</p>
+            <div class="hero-ctas">
+                <button class="btn btn-primary">Download Report</button>
+                <button class="btn btn-secondary">Explore Roles</button>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="bubbles">
-        <div class="bubbles__inner">
-            <div class="bubbles__bubble"></div>
-            <div class="bubbles__bubble"></div>
-            <div class="bubbles__bubble"></div>
+    <!-- SPACER FOR ANIMATION -->
+    <div class="spacer-section"></div>
+
+    <!-- STATISTICS SECTION -->
+    <section class="statistics">
+        <div class="section-heading">
+            <h2>Market Insights at a Glance</h2>
+            <p>Real data driving real opportunities in tech careers</p>
         </div>
-    </div>
-
-    <div class="rays">
-        <div data-rays></div>
-    </div>
-
-    <div class="lights">
-        <div class="lights__group" data-lights="1">
-            <div class="lights__light"></div>
-            <div class="lights__light"></div>
-            <div class="lights__light"></div>
-            <div class="lights__light"></div>
-            <div class="lights__light"></div>
-            <div class="lights__light"></div>
-            <div class="lights__light"></div>
-            <div class="lights__light"></div>
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-number" data-target="171000">0</div>
+                <div class="stat-label">Highest Salary</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" data-target="700000">0</div>
+                <div class="stat-label">Cyber Jobs Open</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" data-target="20">0</div>
+                <div class="stat-label">AI Salary Growth %</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" data-target="76">0</div>
+                <div class="stat-label">Companies Hiring %</div>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <div class="content">
-        <section>
-            <div class="section__content">
-                <p class="section__text">In the deepest ocean</p>
-            </div>
-        </section>
-        <section>
-            <div class="section__content">
-                <p class="section__text">the bottom of the sea</p>
-            </div>
-        </section>
-        <section>
-            <div class="section__content">
-                <div class="section__data">
-                    <h3>Top IT Job Profiles in the USA</h3>
-                    <p>Highest Paying Roles & Market Trends</p>
-                    <p><strong>Report | June 2026 | Compiled by Norlox Solutions</strong></p>
-                    <p>The US IT job market in 2026 is shaped by AI, cloud computing, and cybersecurity. While baseline tech roles face slowdowns, specialized profiles command premium salaries with 8–10% projected salary growth this year.</p>
+    <!-- SALARY OVERVIEW SECTION -->
+    <section class="salary-overview">
+        <div class="section-heading">
+            <h2>Top Paying IT Careers</h2>
+            <p>Explore the most lucrative positions in technology</p>
+        </div>
+        <div class="cards-grid">
+            <div class="salary-card">
+                <div class="salary-card-title">Cloud Architect</div>
+                <div class="salary-amount">$143,270</div>
+                <div class="salary-demand">Very High Demand</div>
+                <div class="salary-skills">
+                    <span class="skill-tag">Cloud Infrastructure</span>
+                    <span class="skill-tag">AWS</span>
+                    <span class="skill-tag">Azure</span>
                 </div>
+                <a href="#" class="learn-more">Learn More →</a>
             </div>
-        </section>
-        <section>
-            <div class="section__content">
-                <div class="section__data">
-                    <h3>1. IT Manager / Director</h3>
-                    <p><strong>Average Salary: $171,000</strong></p>
-                    <p>Oversees technology teams, infrastructure, and strategic IT planning across the organization. Among the highest compensated IT roles per BLS data, reflecting the scope of responsibility and business impact.</p>
-                    <p><strong>Demand: High</strong></p>
-                </div>
-            </div>
-        </section>
-        <section>
-            <div class="section__content">
-                <div class="section__data">
-                    <h3>2. Cloud Architect</h3>
-                    <p><strong>Average Salary: $143,270</strong></p>
-                    <p>Responsible for designing and implementing an organization's entire cloud computing strategy. Demand is near-universal as companies across all industries continue cloud migration. Certifications in AWS, Azure, or GCP are essential.</p>
-                    <p><strong>Demand: Very High</strong></p>
-                </div>
-            </div>
-        </section>
-        <section>
-            <div class="section__content">
-                <div class="section__data">
-                    <h3>3. Security Architect</h3>
-                    <p><strong>Average Salary: $150,000–$170,000+</strong></p>
-                    <p>Creates and oversees an organization's complete security infrastructure, identifies vulnerabilities via risk assessments, and builds security frameworks. Top-rated for both compensation and long-term stability given growing cyber threats.</p>
-                    <p><strong>Demand: Very High</strong></p>
-                </div>
-            </div>
-        </section>
-        <section>
-            <div class="section__content">
-                <div class="section__data">
-                    <h3>4. Cybersecurity Engineer</h3>
-                    <p><strong>Average Salary: $120,000–$160,000</strong></p>
-                    <p>Organizations are shifting to zero-trust models, cloud-native security, and AI-powered threat detection. With 700,000+ unfilled cybersecurity positions in the US, competition for talent is fierce, driving salaries well above market averages.</p>
-                    <p><strong>Demand: Critical</strong></p>
-                </div>
-            </div>
-        </section>
-        <section>
-            <div class="section__content">
-                <div class="section__data">
-                    <h3>5. AI / Machine Learning Engineer</h3>
-                    <p><strong>Average Salary: $130,000–$180,000</strong></p>
-                    <p>The fastest-growing profile in 2026. AI engineers build and deploy models powering automation, prediction, and intelligence across healthcare, SaaS, finance, and logistics. Employers regularly exceed stated salary expectations to secure this talent.</p>
-                    <p><strong>Demand: Explosive</strong></p>
-                </div>
-            </div>
-        </section>
-        <section>
-            <div class="section__content">
-                <div class="section__data">
-                    <h3>6. Data Engineer</h3>
-                    <p><strong>Average Salary: $120,000–$150,000</strong></p>
-                    <p>Builds the pipelines and infrastructure enabling companies to process and analyze massive real-time datasets. Powers AI models, recommendation engines, and business intelligence dashboards. Critical across virtually every modern business.</p>
-                    <p><strong>Demand: Very High</strong></p>
-                </div>
-            </div>
-        </section>
-        <section>
-            <div class="section__content">
-                <div class="section__data">
-                    <h3>Key Market Trends — 2026</h3>
-                    <ul>
-                        <li><strong>AI & Cloud dominate hiring:</strong> Nearly every modernization roadmap now relies on AI and cloud technology.</li>
-                        <li><strong>Skills over experience:</strong> Employers are shifting to skills-based hiring — demonstrable technical ability now outweighs years of experience.</li>
-                        <li><strong>Talent shortage persists:</strong> 76% of IT employers report difficulty finding qualified tech talent, keeping salaries elevated.</li>
-                        <li><strong>Salaries rising 8–10%:</strong> Overall IT salary growth is projected at 8–10% in 2026, with specialized roles seeing increases of up to 20%.</li>
-                        <li><strong>Hot geographies:</strong> Houston and Chicago lead in open tech roles.</li>
-                        <li><strong>Remote & global competition:</strong> The share of global tech job postings in emerging economies grew from 16% (2020) to 28% (2025).</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        <section>
-            <div class="section__content">
-                <p class="section__text">Hit the bottom and escape</p>
-            </div>
-        </section>
-        <section>
-            <div class="section__content">
-                <p class="section__text">escape</p>
-            </div>
-        </section>
-    </div>
 
+            <div class="salary-card">
+                <div class="salary-card-title">AI/ML Engineer</div>
+                <div class="salary-amount">$165,000</div>
+                <div class="salary-demand">Critical Shortage</div>
+                <div class="salary-skills">
+                    <span class="skill-tag">Machine Learning</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">TensorFlow</span>
+                </div>
+                <a href="#" class="learn-more">Learn More →</a>
+            </div>
+
+            <div class="salary-card">
+                <div class="salary-card-title">Security Architect</div>
+                <div class="salary-amount">$158,000</div>
+                <div class="salary-demand">High Demand</div>
+                <div class="salary-skills">
+                    <span class="skill-tag">Cybersecurity</span>
+                    <span class="skill-tag">Risk Management</span>
+                    <span class="skill-tag">Compliance</span>
+                </div>
+                <a href="#" class="learn-more">Learn More →</a>
+            </div>
+
+            <div class="salary-card">
+                <div class="salary-card-title">DevOps Engineer</div>
+                <div class="salary-amount">$151,000</div>
+                <div class="salary-demand">Very High Demand</div>
+                <div class="salary-skills">
+                    <span class="skill-tag">Kubernetes</span>
+                    <span class="skill-tag">CI/CD</span>
+                    <span class="skill-tag">Docker</span>
+                </div>
+                <a href="#" class="learn-more">Learn More →</a>
+            </div>
+
+            <div class="salary-card">
+                <div class="salary-card-title">Data Scientist</div>
+                <div class="salary-amount">$155,000</div>
+                <div class="salary-demand">Critical Shortage</div>
+                <div class="salary-skills">
+                    <span class="skill-tag">Big Data</span>
+                    <span class="skill-tag">Analytics</span>
+                    <span class="skill-tag">SQL</span>
+                </div>
+                <a href="#" class="learn-more">Learn More →</a>
+            </div>
+
+            <div class="salary-card">
+                <div class="salary-card-title">IT Manager</div>
+                <div class="salary-amount">$148,500</div>
+                <div class="salary-demand">High Demand</div>
+                <div class="salary-skills">
+                    <span class="skill-tag">Leadership</span>
+                    <span class="skill-tag">Strategy</span>
+                    <span class="skill-tag">Budget</span>
+                </div>
+                <a href="#" class="learn-more">Learn More →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- HORIZONTAL SCROLL SECTION -->
+    <section class="roles-scroll">
+        <div class="section-heading">
+            <h2>Browse All Roles</h2>
+            <p>Scroll right to explore more career opportunities</p>
+        </div>
+        <div class="scroll-container">
+            <div class="horizontal-scroll">
+                <div class="role-card">
+                    <div class="role-card-badge">Fastest Growing</div>
+                    <div class="role-card-title">AI Engineer</div>
+                    <p>Build the future of artificial intelligence</p>
+                </div>
+                <div class="role-card">
+                    <div class="role-card-badge">High Demand</div>
+                    <div class="role-card-title">Cloud Architect</div>
+                    <p>Design scalable cloud infrastructure</p>
+                </div>
+                <div class="role-card">
+                    <div class="role-card-badge">Critical</div>
+                    <div class="role-card-title">Security Specialist</div>
+                    <p>Protect enterprise systems and data</p>
+                </div>
+                <div class="role-card">
+                    <div class="role-card-badge">High Demand</div>
+                    <div class="role-card-title">DevOps Engineer</div>
+                    <p>Automate and optimize operations</p>
+                </div>
+                <div class="role-card">
+                    <div class="role-card-badge">Fastest Growing</div>
+                    <div class="role-card-title">Data Scientist</div>
+                    <p>Extract insights from big data</p>
+                </div>
+                <div class="role-card">
+                    <div class="role-card-badge">High Demand</div>
+                    <div class="role-card-title">Software Engineer</div>
+                    <p>Create innovative applications</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MARKET TRENDS SECTION -->
+    <section class="market-trends">
+        <div class="section-heading">
+            <h2>Market Trends 2026</h2>
+            <p>Understanding the forces shaping tech careers</p>
+        </div>
+        <div class="trends-container">
+            <div class="trend-block">
+                <h3>🤖 AI Dominates Hiring</h3>
+                <p>Artificial Intelligence now drives nearly every technology roadmap. Companies are investing heavily in AI/ML talent, creating unprecedented demand for engineers who can build and deploy AI solutions at scale.</p>
+            </div>
+            <div class="trend-block">
+                <h3>☁️ Cloud Infrastructure Grows</h3>
+                <p>Cloud adoption continues accelerating. AWS, Azure, and Google Cloud have become essential infrastructure, creating massive demand for cloud architects and engineers who can manage multi-cloud environments.</p>
+            </div>
+            <div class="trend-block">
+                <h3>🔒 Cybersecurity Critical</h3>
+                <p>Security breaches are becoming increasingly expensive. Companies now prioritize cybersecurity at every level, driving demand for specialized security professionals who can protect digital assets.</p>
+            </div>
+            <div class="trend-block">
+                <h3>🌍 Remote Hiring Dominates</h3>
+                <p>Remote work is now standard across the tech industry. Geographic constraints have disappeared, allowing companies to hire global talent and engineers to work from anywhere.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>Ready to Build Your IT Career?</h2>
+            <p>Download our complete 2026 IT Salary Guide and start your journey toward a lucrative tech career</p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary">Download Report</button>
+                <button class="btn btn-secondary">View Salary Guide</button>
+                <button class="btn btn-secondary">Contact Norlox</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FIXED FOOTER -->
     <footer>
-        <p>&copy; 2026 Norlox Solutions | IT Job Market Report | June 2026</p>
+        <div class="footer-container">
+            <div class="footer-text">
+                <strong>© 2026 Norlox Solutions</strong> | Empowering tech professionals with market insights and career guidance.
+            </div>
+        </div>
     </footer>
 
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/ScrollTrigger.min.js'></script>
-    <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/MotionPathPlugin.min.js'></script>
-    <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/MotionPathHelper.min.js?v=46'></script>
-    <script src='https://cdn.jsdelivr.net/npm/lodash.throttle@4.1.1/index.js'></script>
+    <!-- SOCIAL LINKS -->
+    <div class="support">
+        <a href="https://twitter.com/DevLoop01" target="_blank"><i class="fab fa-twitter-square"></i></a>
+        <a href="https://dribbble.com/devloop01" target="_blank"><i class="fab fa-dribbble"></i></a>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src='https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js'></script>
+    <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js'></script>
+    <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js'></script>
+    <script src='https://unpkg.com/html2canvas@1.0.0-rc.5/dist/html2canvas.js'></script>
     <script>
-        gsap.registerPlugin(ScrollTrigger)
-        gsap.registerPlugin(MotionPathPlugin)
+        console.clear();
 
-        const rx = window.innerWidth < 1000 ? window.innerWidth / 1200 : 1
-        const ry = window.innerHeight < 700 ? window.innerHeight / 1200 : 1
+        // ===== ORIGINAL GSAP DISINTEGRATION ANIMATION (UNTOUCHED) =====
+        gsap.registerPlugin(ScrollTrigger);
 
-        const path = [
-            // 1
-            { x: 800, y: 200 },
-            { x: 900, y: 20 },
-            { x: 1100, y: 100 },
-            // 2
-            { x: 1000, y: 200 },
-            { x: 900, y: 20 },
-            { x: 10, y: 500 },
-            // 3
-            { x: 100, y: 300 },
-            { x: 500, y: 400 },
-            { x: 1000, y: 200 },
-            // 4
-            { x: 1100, y: 300 },
-            { x: 400, y: 400 },
-            { x: 200, y: 250 },
-            // 5
-            { x: 100, y: 300 },
-            { x: 500, y: 450 },
-            { x: 1100, y: 500 }
-        ]
+        const COUNT = 75;
+        const REPEAT_COUNT = 3;
 
-        const scaledPath = path.map(({ x, y }) => {
-            return {
-                x: x * rx,
-                y: y * ry
-            }
-        })
+        const capture = document.querySelector("#capture");
 
-        const sections = [...document.querySelectorAll('section')]
-        const fish = document.querySelector('.fish')
-        const fishHeadAndBody =
-            [
-                ...document.querySelectorAll('.fish__head'),
-                ...document.querySelectorAll('.fish__body')
-            ]
-        const lights = [...document.querySelectorAll('[data-lights]')]
-        const rays = document.querySelector('[data-rays]')
+        function createCanvases(captureEl) {
+            html2canvas(captureEl).then((canvas) => {
+                const width = canvas.width;
+                const height = canvas.height;
+                const ctx = canvas.getContext("2d");
+                const imageData = ctx.getImageData(0, 0, width, height);
+                let dataList = [];
+                captureEl.style.display = "none";
 
-        const bubbles = gsap.timeline()
-        bubbles.set('.bubbles__bubble', {
-            y: 100,
-        })
-        bubbles.to('.bubbles__bubble', {
-            scale: 1.2,
-            y: -300,
-            opacity: 1,
-            duration: 2,
-            stagger: 0.2,
-        })
-        bubbles.to('.bubbles__bubble', {
-            scale: 1,
-            opacity: 0,
-            duration: 1,
-        }, '-=1')
+                for (let i = 0; i < COUNT; i++) {
+                    dataList.push(ctx.createImageData(width, height));
+                }
 
-        bubbles.pause()
+                for (let x = 0; x < width; x++) {
+                    for (let y = 0; y < height; y++) {
+                        for (let l = 0; l < REPEAT_COUNT; l++) {
+                            const index = (x + y * width) * 4;
+                            const dataIndex = Math.floor(
+                                (COUNT * (Math.random() + (2 * x) / width)) / 3
+                            );
+                            for (let p = 0; p < 4; p++) {
+                                dataList[dataIndex].data[index + p] = imageData.data[index + p];
+                            }
+                        }
+                    }
+                }
 
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                scrub: 1.5,
-            },
-        })
-        tl.to(fish, {
-            motionPath: {
-                path: scaledPath,
-                align: 'self',
-                alignOrigin: [0.5, 0.5],
-                autoRotate: true
-            },
-            duration: 10,
-            immediateRender: true,
-        })
-        tl.to('.indicator', {
-            opacity: 0
-        }, 0)
-        tl.to(fish, {
-            rotateX: 180
-        }, 1)
-        tl.to(fish, {
-            rotateX: 0
-        }, 2.5)
-        tl.to(fish, {
-            z: -500,
-            duration: 2,
-        }, 2.5)
-        tl.to(fish, {
-            rotateX: 180
-        }, 4)
-        tl.to(fish, {
-            rotateX: 0
-        }, 5.5)
-        tl.to(fish, {
-            z: -50,
-            duration: 2,
-        }, 5)
-        tl.to(fish, {
-            rotate: 0,
-            duration: 1,
-        }, '-=1')
-        tl.to('.fish__skeleton', {
-            opacity: 0.6,
-            duration: 0.1,
-            repeat: 4
-        }, '-=3')
-        tl.to(fishHeadAndBody, {
-            opacity: 0,
-            duration: 0.1,
-            repeat: 4
-        }, '-=3')
-        tl.to('.fish__inner', {
-            opacity: 0.1,
-            duration: 1
-        }, '-=1')
-        tl.to('.fish__skeleton', {
-            opacity: 0.1,
-            duration: 1
-        }, '-=1')
+                dataList.forEach((data, i) => {
+                    let clonedCanvas = canvas.cloneNode();
+                    clonedCanvas.getContext("2d").putImageData(data, 0, 0);
+                    clonedCanvas.className = "capture-canvas";
+                    document.body.appendChild(clonedCanvas);
 
-        bubbles.play()
-        tl.pause()
+                    const randomAngle = (Math.random() - 0.5) * 2 * Math.PI;
+                    const randomRotationAngle = 30 * (Math.random() - 0.5);
 
-        const lightsTl = gsap.timeline({
-            scrollTrigger: {
-                scrub: 6
-            }
-        })
-        lightsTl.from(lights[0], {
-            x: window.innerWidth * -1,
-            y: window.innerHeight,
-            ease: 'power4.out',
-            duration: 80
-        }, 0)
-        lightsTl.to(lights[0], {
-            x: window.innerWidth,
-            y: window.innerHeight * -1,
-            ease: 'power4.out',
-            duration: 80
-        }, '-=5')
+                    let tl = gsap.timeline({
+                        scrollTrigger: {
+                            scrub: 1,
+                            start: () => 0,
+                            end: () => window.innerHeight * 2
+                        }
+                    });
 
-        const makeBubbles = (p, i) => {
-            const { top, left } = fish.getBoundingClientRect()
-            gsap.to(p, { opacity: 1, duration: 1 })
-            gsap.set('.bubbles', {
-                x: left,
-                y: top
-            })
-            if (bubbles.paused) {
-                bubbles.restart()
-            }
-            if (i > 6) {
-                gsap.to('.bubbles', {
-                    opacity: 0
-                })
-            }
+                    tl.to(clonedCanvas, {
+                        duration: 1,
+                        rotate: randomRotationAngle,
+                        translateX: 40 * Math.sin(randomAngle),
+                        translateY: 40 * Math.cos(randomAngle),
+                        opacity: 0,
+                        delay: (i / dataList.length) * 2
+                    });
+                });
+            });
         }
 
-        const rotateFish = (self) => {
-            if (self.direction === -1) {
-                gsap.to(fish, { rotationY: 180, duration: 0.4 })
+        const images = gsap.utils.toArray("img");
+
+        imagesLoaded(images).on("always", () => {
+            createCanvases(capture);
+        });
+
+        // ===== HEADER SCROLL EFFECT =====
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.premium-header');
+            const footer = document.querySelector('footer');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+                footer.classList.add('scrolled');
             } else {
-                gsap.to(fish, { rotationY: 0, duration: 0.4 })
+                header.classList.remove('scrolled');
+                footer.classList.remove('scrolled');
             }
-        }
+        });
 
-        const hideText = (p) => {
-            gsap.to(p, { opacity: 0, duration: 1 })
-        }
+        // ===== STATISTICS COUNTER ANIMATION =====
+        const animateCounter = (element, target) => {
+            const duration = 2;
+            gsap.to(element, {
+                textContent: target,
+                duration: duration,
+                ease: "power2.out",
+                snap: { textContent: 1 }
+            });
+        };
 
-        sections.forEach((section, i) => {
-            const p = section.querySelector('p, .section__data')
-            gsap.to(p, { opacity: 0 })
+        // Trigger counter when section is in view
+        const statCards = document.querySelectorAll('.stat-number');
+        statCards.forEach(card => {
+            const target = parseInt(card.dataset.target);
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    animateCounter(card, target);
+                    observer.unobserve(card);
+                }
+            }, { threshold: 0.5 });
+            observer.observe(card);
+        });
 
-            ScrollTrigger.create({
-                trigger: section,
-                start: "top top",
-                onEnter: () => makeBubbles(p, i),
-                onEnterBack: () => {
-                    if (i <= 6) {
-                        gsap.to('.bubbles', {
-                            opacity: 1
-                        })
-                    }
-                },
-                onLeave: () => {
-                    hideText(p)
-                    if (i == 0) {
-                        gsap.to('.rays', {
-                            opacity: 0,
-                            y: -500,
-                            duration: 8,
-                            ease: 'power4.in'
-                        })
-                    }
-                },
-                onLeaveBack: () => hideText(p),
-                onUpdate: (self) => rotateFish(self)
-            })
-        })
+        // ===== BUTTON CLICK HANDLERS =====
+        document.querySelectorAll('.btn, .cta-download').forEach(btn => {
+            btn.addEventListener('click', function() {
+                alert('Thank you for your interest! Download feature coming soon.');
+            });
+        });
     </script>
 
 </body>
